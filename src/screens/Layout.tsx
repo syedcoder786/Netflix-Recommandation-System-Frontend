@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Outlet } from "react-router-dom";
 import NetflixHeroModal from "./Home/NetflixHeroModal";
+import Navbar from "@/components/Navbar";
 
 const Layout = () => {
   const [open, setOpen] = useState(false);
@@ -9,6 +10,7 @@ const Layout = () => {
 
   return (
     <>
+      <Navbar open={open} setOpen={setOpen} query={query} setQuery={setQuery} />
       <Outlet
         context={{
           open,

@@ -72,12 +72,7 @@ const index = () => {
           backgroundImage: `url(${getBackdropUrl(currentMovie?.backdrop_path)})`,
         }}
       >
-        <Navbar
-          open={open}
-          setOpen={setOpen}
-          query={query}
-          setQuery={setQuery}
-        />
+        <nav></nav>
         <div
           className="absolute z-2 mt-60 ml-35 w-150
                   flex flex-col text-white max-md:w-[90%] max-md:mx-5 max-md:mt-40"

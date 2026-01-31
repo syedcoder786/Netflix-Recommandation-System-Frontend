@@ -14,8 +14,8 @@ const index = () => {
       setOpen: (v: boolean) => void;
       query: string;
       setQuery: (v: string) => void;
-      showHeroModal: boolean;
-      setShowHeroModal: (v: boolean) => void;
+      showHeroModal;
+      setShowHeroModal: (v) => void;
     }>();
 
   const { data: movieRecommandations, isLoading, error } = useSearch(query);
@@ -25,10 +25,10 @@ const index = () => {
   const { hovered, pos, isHoveringRef, handleEnter, handleLeave } =
     useHoverPreview(cardDimensions);
 
+  const isMobile = window.matchMedia("(max-width: 768px)").matches;
+
   return (
     <div>
-      <Navbar open={open} setOpen={setOpen} query={query} setQuery={setQuery} />
-
       <div className="relative mt-15 mb-20 flex flex-col items-center overflow-hidden img-container w-full max-md:w-full">
         <div className="flex flex-col items-center overflow-hidden img-container w-full max-md:w-full">
           <div className="grid grid-cols-7 max-md:grid-cols-2 justify-items-center gap-x-2 gap-y-14 w-[92%] max-md:w-[95%]">
@@ -42,7 +42,7 @@ const index = () => {
                   alt={`Slide ${index}`}
                   className="h-[250px] w-[200px] max-md:w-full rounded-[8px] cursor-pointer"
                   onMouseEnter={(e) => handleEnter(e, movie)}
-                  onClick={() => setShowHeroModal(hovered)}
+                  onClick={() => setShowHeroModal(movie)}
                   onMouseLeave={handleLeave}
                 />
               ))
@@ -52,7 +52,7 @@ const index = () => {
           {hovered &&
             createPortal(
               <div
-                className="absolute z-[1] bg-black/90 rounded flex flex-col justify-center gap-2
+                className="absolute z-1 bg-black/90 rounded flex flex-col justify-center gap-2
         transition-all duration-500 ease-out
         opacity-0 scale-95 translate-y-2
         animate-[popup_0.3s_ease-out_forwards]"
