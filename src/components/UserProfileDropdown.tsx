@@ -8,6 +8,7 @@ import {
   FiUser,
 } from "react-icons/fi";
 import { useNavigate } from "react-router-dom";
+import NetflixProfile from "@/assets/images/netflixprofile.jpg";
 
 export default function UserProfileDropdown() {
   const [open, setOpen] = useState(false);
@@ -34,11 +35,7 @@ export default function UserProfileDropdown() {
         onClick={() => setOpen((v) => !v)}
         className="flex items-center gap-2 w-16"
       >
-        <img
-          src="/src/assets/images/netflixprofile.jpg"
-          alt="Profile"
-          className="rounded"
-        />
+        <img src={NetflixProfile} alt="Profile" className="rounded" />
         <FiChevronDown
           className={`text-white transition-transform ${
             open ? "rotate-180" : ""

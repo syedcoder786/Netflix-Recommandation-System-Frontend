@@ -1,4 +1,13 @@
 import { useNavigate } from "react-router-dom";
+import NetflixLogo from "@/assets/images/Logonetflix.png";
+import bgImage from "@/assets/images/netflix-background.jpg";
+
+import squidGame from "@/assets/images/squid-game-netflix.jpg";
+import knightAgent from "@/assets/images/knight-agent-netflix.jpg";
+import bhoolBhulaiyaa from "@/assets/images/Bhool_Bhulaiyaa_3_netflix.jpg";
+import luckyBhasker from "@/assets/images/lucky-bhasker-netflix.jpg";
+import xoKitty from "@/assets/images/xo-kitty-netflix.jpg";
+import mismatched from "@/assets/images/mismatched-netflix.jpg";
 
 const SignIn = () => {
   const navigate = useNavigate();
@@ -6,11 +15,11 @@ const SignIn = () => {
     <>
       <header
         style={{
-          backgroundImage: `url(/src/assets/images/netflix-background.jpg)`,
+          backgroundImage: `url(${bgImage})`,
         }}
       >
         <nav className="z-2 w-[80%]">
-          <img src="/src/assets/images/Logonetflix.png" alt="netflix" />
+          <img src={NetflixLogo} alt="netflix" />
           <div className="nav-container">
             <select className="selectlan max-md:hidden">
               <option value="English">English</option>
@@ -53,15 +62,12 @@ const SignIn = () => {
           <h2 className="text-2xl font-bold">Trending Now</h2>
 
           <div className="login-img-container">
-            <img src="/src/assets/images/squid-game-netflix.jpg" alt="" />
-            <img src="/src/assets/images/knight-agent-netflix.jpg" alt="" />
-            <img
-              src="/src/assets/images/Bhool_Bhulaiyaa_3_netflix.jpg"
-              alt=""
-            />
-            <img src="/src/assets/images/lucky-bhasker-netflix.jpg" alt="" />
-            <img src="/src/assets/images/xo-kitty-netflix.jpg" alt="" />
-            <img src="/src/assets/images/mismatched-netflix.jpg" alt="" />
+            <img src={squidGame} alt="Squid Game" />
+            <img src={knightAgent} alt="Knight Agent" />
+            <img src={bhoolBhulaiyaa} alt="Bhool Bhulaiyaa 3" />
+            <img src={luckyBhasker} alt="Lucky Bhasker" />
+            <img src={xoKitty} alt="XO Kitty" />
+            <img src={mismatched} alt="Mismatched" />
             <div className="slider">
               <div className="btn-slider">{">"}</div>
             </div>
