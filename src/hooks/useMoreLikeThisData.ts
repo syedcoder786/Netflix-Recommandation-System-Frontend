@@ -1,23 +1,15 @@
-import { MOVIES_LIKE_THIS_ENDPOINT } from "@/constants/endpoint";
 import { useInfiniteQuery } from "@tanstack/react-query";
-import ApiClient from "@/services/apiClient";
+import ApiClient, { type FetchDataResponse } from "@/services/apiClient";
 import type { Movie } from "@/entities/Movie";
-
-type MoreLikeThisResponse = {
-  page: number;
-  limit: number;
-  total: number;
-  data: Movie[];
-};
 
 const useMoreLikeThisData = (movieId: number, limit = 12) => {
   const apiClient = new ApiClient<Movie>(`/moviesLikeThis/${movieId}`);
 
-  return useInfiniteQuery<MoreLikeThisResponse, Error>({
+  return useInfiniteQuery<FetchDataResponse<Movie>, Error>({
     queryKey: ["movies", "more-like-this", movieId, limit],
 
     queryFn: ({ pageParam = 1, signal }) =>
-      apiClient.getAll({
+      apiClient.getAllPaginated({
         params: {
           page: pageParam,
           limit,

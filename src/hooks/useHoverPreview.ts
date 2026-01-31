@@ -3,7 +3,7 @@ import { useRef, useState } from "react";
 type Position = { x: number; y: number };
 
 export const useHoverPreview = (cardDimensions) => {
-  const [hovered, setHovered] = useState<string | null>(null);
+  const [hovered, setHovered] = useState(null);
   const [pos, setPos] = useState<Position>({ x: 0, y: 0 });
 
   const hoverTimeoutRef = useRef<number | null>(null);
@@ -12,7 +12,7 @@ export const useHoverPreview = (cardDimensions) => {
 
   const HOVER_DELAY = hovered ? 300 : 500;
 
-  const handleEnter = (e: React.MouseEvent, src: string) => {
+  const handleEnter = (e: React.MouseEvent, src) => {
     isHoveringRef.current = true;
     hoverTargetRef.current = e.currentTarget as HTMLElement;
 

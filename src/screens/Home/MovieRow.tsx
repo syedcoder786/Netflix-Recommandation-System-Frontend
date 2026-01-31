@@ -1,7 +1,7 @@
-import React, { useEffect } from "react";
 import NetflixSlider from "./NetflixSlider";
 import useGenre from "../../hooks/useGenre";
 import MovieRowSkeleton from "../../components/MovieRowSkeleton";
+import { memo } from "react";
 
 const MovieRow = ({ setShowHeroModal, title, genre }) => {
   const { data: movieRow, error, isLoading } = useGenre(genre);
@@ -23,4 +23,4 @@ const MovieRow = ({ setShowHeroModal, title, genre }) => {
   );
 };
 
-export default React.memo(MovieRow);
+export default memo(MovieRow);

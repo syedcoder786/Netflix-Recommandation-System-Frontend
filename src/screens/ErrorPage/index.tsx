@@ -4,8 +4,7 @@ const ErrorPage = () => {
   const error = useRouteError();
   return (
     <>
-      <heading>Opps</heading>
-      <p>
+      <p className="text-white text-2xl">
         {isRouteErrorResponse(error)
           ? "This page does not exist"
           : "An unexpected error occurred"}

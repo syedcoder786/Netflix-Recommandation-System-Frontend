@@ -1,12 +1,12 @@
 import { useQuery } from "@tanstack/react-query";
-import ApiClient, { type FetchDataResponse } from "@/services/apiClient";
-import type { Movie } from "@/entities/Game";
+import ApiClient from "@/services/apiClient";
 import { TRENDING_ENDPOINT } from "../constants/endpoint";
+import type { Movie } from "@/entities/Movie";
 
-const apiClient = new ApiClient<Movie>(TRENDING_ENDPOINT);
+const apiClient = new ApiClient<Movie[]>(TRENDING_ENDPOINT);
 
 const useTrendingData = () => {
-  return useQuery<FetchDataResponse<Movie>, Error>({
+  return useQuery<Movie[], Error>({
     queryKey: ["trending"],
     queryFn: ({ signal }) => apiClient.getAll({ signal }),
     staleTime: 0,

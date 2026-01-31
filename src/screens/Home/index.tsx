@@ -8,14 +8,13 @@ import useTrendingData from "../../hooks/useTrendingData";
 import { getBackdropUrl } from "../../services/imageUrl";
 
 const index = () => {
-  const { open, query, setQuery, setOpen, showHeroModal, setShowHeroModal } =
+  const { open, query, setQuery, setOpen, setShowHeroModal } =
     useOutletContext<{
       open: boolean;
       setOpen: (v: boolean) => void;
       query: string;
       setQuery: (v: string) => void;
-      showHeroModal: boolean;
-      setShowHeroModal: (v: boolean) => void;
+      setShowHeroModal: (v) => void;
     }>();
 
   const { data: trendingMovies, isLoading, error } = useTrendingData();
@@ -26,7 +25,7 @@ const index = () => {
     if (!trendingMovies || trendingMovies.length === 0) return;
 
     const timer = setInterval(() => {
-      setIndex((prev) => (prev + 1) % trendingMovies.length);
+      setIndex((prev) => (prev + 1) % trendingMovies?.length);
     }, 4000);
 
     return () => clearInterval(timer);

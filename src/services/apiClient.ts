@@ -1,9 +1,10 @@
 import axios, { type AxiosRequestConfig } from "axios";
 
 export interface FetchDataResponse<T> {
-  count: number;
-  next?: boolean;
-  results: T[];
+  page: number;
+  limit: number;
+  total: number;
+  data: T[];
 }
 
 const axiosIntance = axios.create({
@@ -16,6 +17,10 @@ class ApiClient<T> {
     this.endpoint = endpoint;
   }
   getAll = (config: AxiosRequestConfig) => {
+    return axiosIntance.get<T>(this.endpoint, config).then((res) => res.data);
+  };
+
+  getAllPaginated = (config: AxiosRequestConfig) => {
     return axiosIntance
       .get<FetchDataResponse<T>>(this.endpoint, config)
       .then((res) => res.data);

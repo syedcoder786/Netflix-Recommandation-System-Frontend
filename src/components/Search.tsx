@@ -1,16 +1,6 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { FiSearch, FiX } from "react-icons/fi";
 import { useLocation, useNavigate } from "react-router-dom";
-
-const MOCK_SUGGESTIONS = [
-  "Breaking Bad",
-  "Money Heist",
-  "Stranger Things",
-  "Narcos",
-  "Dark",
-  "The Witcher",
-  "Lucifer",
-];
 
 export default function Search({
   open,

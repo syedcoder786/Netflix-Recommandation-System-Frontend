@@ -1,10 +1,10 @@
 import { SEARCH_ENDPOINT } from "@/constants/endpoint";
-import ApiClient, { type FetchDataResponse } from "@/services/apiClient";
+import ApiClient from "@/services/apiClient";
 import { useDebounce } from "use-debounce";
 import type { Movie } from "@/entities/Movie";
 import { useQuery } from "@tanstack/react-query";
 
-const apiClient = new ApiClient<Movie>(SEARCH_ENDPOINT);
+const apiClient = new ApiClient<Movie[]>(SEARCH_ENDPOINT);
 
 const useSearch = (search) => {
   const [debouncedSearch] = useDebounce(search, 300);
@@ -13,7 +13,7 @@ const useSearch = (search) => {
     q: debouncedSearch,
   };
 
-  return useQuery<FetchDataResponse<Movie>, Error>({
+  return useQuery<Movie[], Error>({
     queryKey: ["search", debouncedSearch],
     queryFn: ({ signal }) =>
       apiClient.getAll({

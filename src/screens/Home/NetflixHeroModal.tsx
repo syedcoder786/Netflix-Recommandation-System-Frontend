@@ -6,7 +6,7 @@ import LanguageScroller from "./LanguageScroller";
 import useMoreLikeThisData from "../../hooks/useMoreLikeThisData";
 import { getDuration } from "../../utlis/getDuration";
 import { getYearFromDate } from "../../utlis/getYearFromDate";
-import { useEffect, useLayoutEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 
 export default function NetflixHeroModal({ movie, onClose, setShowHeroModal }) {
   const {

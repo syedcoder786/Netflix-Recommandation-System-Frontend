@@ -1,12 +1,11 @@
 import { useState } from "react";
 import { Outlet } from "react-router-dom";
 import NetflixHeroModal from "./Home/NetflixHeroModal";
-import Navbar from "../components/Navbar";
 
 const Layout = () => {
   const [open, setOpen] = useState(false);
   const [query, setQuery] = useState("");
-  const [showHeroModal, setShowHeroModal] = useState(false);
+  const [showHeroModal, setShowHeroModal] = useState(null);
 
   return (
     <>

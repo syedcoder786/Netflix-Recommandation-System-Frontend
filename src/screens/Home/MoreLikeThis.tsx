@@ -1,10 +1,6 @@
-import { FiPlus } from "react-icons/fi";
 import { getPosterUrl } from "../../services/imageUrl";
-import { getRatingOutOf10 } from "../../utlis/getRating";
-import { getYearFromDate } from "../../utlis/getYearFromDate";
 import { useInfiniteScroll } from "../../hooks/useInfiniteScroll";
 import MoreLikeThisSkeleton from "../../components/MoreLikeThisSkeleton";
-import { useLayoutEffect, useRef } from "react";
 
 const MoreLikeThis = ({
   pages,

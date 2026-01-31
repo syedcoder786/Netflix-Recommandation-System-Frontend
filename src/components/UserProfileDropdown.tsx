@@ -75,7 +75,7 @@ function DropdownItem({
   label: string;
   Icon: IconType;
   danger?: boolean;
-  onClick: () => void;
+  onClick?: () => void;
 }) {
   return (
     <div

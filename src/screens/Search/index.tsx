@@ -1,6 +1,5 @@
 import { useOutletContext } from "react-router-dom";
 import Navbar from "../../components/Navbar";
-import { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import NetflixCard from "../Home/NetflixCard";
 import useSearch from "../../hooks/useSearch";
