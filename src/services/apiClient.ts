@@ -7,8 +7,8 @@ export interface FetchDataResponse<T> {
   data: T[];
 }
 
-const axiosIntance = axios.create({
-  baseURL: "http://localhost:3000/movies",
+const axiosInstance = axios.create({
+  baseURL: import.meta.env.VITE_API_BASE_URL,
 });
 
 class ApiClient<T> {
@@ -17,17 +17,17 @@ class ApiClient<T> {
     this.endpoint = endpoint;
   }
   getAll = (config: AxiosRequestConfig) => {
-    return axiosIntance.get<T>(this.endpoint, config).then((res) => res.data);
+    return axiosInstance.get<T>(this.endpoint, config).then((res) => res.data);
   };
 
   getAllPaginated = (config: AxiosRequestConfig) => {
-    return axiosIntance
+    return axiosInstance
       .get<FetchDataResponse<T>>(this.endpoint, config)
       .then((res) => res.data);
   };
 
   get = (slug: string | number, config: AxiosRequestConfig) => {
-    return axiosIntance
+    return axiosInstance
       .get<T>(`${this.endpoint}/${slug}`, config)
       .then((res) => res.data);
   };

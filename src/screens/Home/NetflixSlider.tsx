@@ -40,7 +40,7 @@ const NetflixSlider = ({ setShowHeroModal, movieRow }) => {
       {/* Slider */}
       <div
         ref={sliderRef}
-        className="slide flex overflow-x-auto gap-4 scroll-smooth hide-scrollbar w-[95%] rounded pr-10 max-md:w-full"
+        className="flex overflow-x-auto gap-4 scroll-smooth hide-scrollbar w-[95%] rounded pr-10 max-md:w-full"
         onMouseEnter={() => setShowRightArrow(true)}
       >
         {movieRow?.map((movieRow, index) => (
@@ -48,7 +48,7 @@ const NetflixSlider = ({ setShowHeroModal, movieRow }) => {
             key={index}
             src={getPosterUrl(movieRow?.poster_path)}
             alt={`Slide ${index}`}
-            className="flex-shrink-0 rounded"
+            className="flex-shrink-0 w-[200px] h-[250px] rounded-[8px]"
             onMouseEnter={(e) => handleEnter(e, movieRow)}
             onClick={() => setShowHeroModal(movieRow)}
             onMouseLeave={handleLeave}

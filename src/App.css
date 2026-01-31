@@ -135,12 +135,6 @@ nav img {
     color: white;
 }
 
-main .img-container .slide img{
-    height: 250px; 
-    width: 200px;
-    border-radius: 8px;
-}
-
 main .login-img-container{
     position: relative;
     display: flex;

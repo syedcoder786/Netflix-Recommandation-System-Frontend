@@ -5,7 +5,10 @@ import { calculateMatch } from "../../utlis/getMoviesMatch";
 const NetflixCard = ({ cardDimensions, movie }) => {
   return (
     <div
-      className={`w-[${cardDimensions.width}px] h-[${cardDimensions.height}px] cursor-pointer rounded-lg overflow-hidden bg-[#181818] text-white shadow-xl`}
+      style={{
+        width: `${cardDimensions.width}px`,
+      }}
+      className={`cursor-pointer rounded-lg overflow-hidden bg-[#181818] text-white shadow-xl`}
     >
       {/* Poster */}
       <div className="relative">
